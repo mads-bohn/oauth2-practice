@@ -18,7 +18,7 @@ public class SecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable) // disables CSRF
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated()) // requires endpoint authentication
-                .formLogin(Customizer.withDefaults()); // form-based login
+                .formLogin(form -> form.defaultSuccessUrl("/hello", true)); // form-based login with success page mapping
         return http.build();
     }
 }
