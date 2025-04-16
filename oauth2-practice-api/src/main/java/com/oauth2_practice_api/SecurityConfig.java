@@ -18,7 +18,7 @@ public class SecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable) // disables CSRF
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated()) // requires endpoint authentication
-                .oauth2Login(oauth2 -> oauth2.defaultSuccessUrl("/hello", true)); // oauth2 login with success page mapping
+                .oauth2Login(oauth2 -> oauth2.defaultSuccessUrl("http://localhost:5173/dashboard", true)); // oauth2 login with success page redirect
         return http.build();
     }
 }
