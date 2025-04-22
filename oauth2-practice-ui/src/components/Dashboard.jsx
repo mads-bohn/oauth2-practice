@@ -18,9 +18,15 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h2>Welcome</h2>
-      <p>Name:</p>
-      <p>Email:</p>
+      <h1>Dashboard</h1>
+      {user ? (
+        <div>
+          <h2>Welcome, {user.name}!</h2>
+          <p>Email: {user.email}</p>
+        </div>
+      ) : (
+        <p>Loading user data...</p>
+      )}     
     </div>
   )
 }
