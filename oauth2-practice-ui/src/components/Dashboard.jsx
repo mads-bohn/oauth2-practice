@@ -6,9 +6,12 @@ export default function Dashboard() {
   const [user, setUser] = useState();
 
   const fetchUser = () => {
-    axios.get('', {withCredentials: true})
+    axios.get('http://localhost:8080/user-data', {withCredentials: true})
     .then(response => {
       setUser(response.data);
+    })
+    .catch(error => {
+      console.error('Error: ', error);
     })
   }
 
