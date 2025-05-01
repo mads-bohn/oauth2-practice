@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
+import { useState } from 'react';
 
 export default function Dashboard() {
 
@@ -26,6 +27,9 @@ export default function Dashboard() {
         <div>
           <h2>Welcome, {user.name}!</h2>
           <p>Email: {user.email}</p>
+          <img src={user.picture} 
+               alt={user.name + "'s profile"}
+               referrerPolicy='no-referrer' />
         </div>
       ) : (
         <p>Loading user data...</p>
