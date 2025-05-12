@@ -16,6 +16,10 @@ export default function Dashboard() {
     })
   }
 
+  const logoutUser = () => {
+    axios.post('http://localhost:8080/logout')
+  }
+
   useEffect(() => {
     fetchUser();
   }, []);
@@ -30,6 +34,7 @@ export default function Dashboard() {
           <img src={user.picture} 
                alt={user.name + "'s profile"}
                referrerPolicy='no-referrer' />
+          <button onClick={logoutUser}>Logout</button>
         </div>
       ) : (
         <p>Loading user data...</p>
